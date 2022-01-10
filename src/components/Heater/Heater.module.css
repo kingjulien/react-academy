@@ -1,0 +1,8 @@
+.lightOn {
+  background-color: green;
+}
+
+.lightOff {
+  background-color: black;
+  color: white;
+}

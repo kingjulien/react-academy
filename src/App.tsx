@@ -1,9 +1,10 @@
-import { useEffect, useState } from 'react';
-import logo from './logo.svg';
+import React, { useEffect, useState } from 'react';
+
 import './App.css';
+import Heater from './components/Heater';
 import styles from './App.module.css';
 
-// uloha - pridat fetch load start a fetch load end indicator - napriklad pre loading icon
+// add fetch load start and fetch load end indicator - f.e loading icon
 
 interface IState {
   temperature: number;
@@ -16,6 +17,12 @@ const initialState: IState = {
 const App: React.FC = () => {
   const [data, setData] = useState<IState>(initialState);
 
+  const [inputValue, setValue] = useState('22');
+
+  const inputValueChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setValue(e.target.value);
+  };
+
   useEffect(() => {
     console.log('mounting');
 
@@ -27,11 +34,8 @@ const App: React.FC = () => {
 
   return (
     <>
-      <div className="App">
-        <img src={logo} alt="React logo" width="100" height="100" />
-      </div>
-      {/* create and use data component here - try lifecycle methods using conditional statement */}
-      <div className={styles.data}>Temperature: {data.temperature}</div>
+      <Heater power={40} />
+      <input type="text" value={inputValue} onChange={inputValueChange} />
     </>
   );
 };
