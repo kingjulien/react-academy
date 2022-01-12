@@ -1,3 +1,5 @@
-.data {
-  color: red;
+@import './styles.css';
+
+.house {
+  background-color: var(--color-primary);
 }

@@ -55,6 +55,7 @@ Jest
 ### Fetch API
 
 fetch data, error handling
+useQuery example
 
 ### Lift state up
 

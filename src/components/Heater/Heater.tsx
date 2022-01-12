@@ -1,4 +1,5 @@
 import React from 'react';
+
 import styles from './Heater.module.css';
 
 interface Props {
@@ -16,7 +17,7 @@ class Light extends React.Component<Props, State> {
     super(props);
     console.log('Constructing...');
 
-    this.handleSwitch = this.handleSwitch.bind(this);
+    // this.handleSwitch = this.handleSwitch.bind(this);
   }
 
   componentDidMount() {
@@ -35,14 +36,16 @@ class Light extends React.Component<Props, State> {
     turned: false,
   };
 
-  handleSwitch() {}
+  handleSwitch() {
+    this.setState({ turned: true });
+  }
 
   render() {
     console.log('RENDER');
     const bulb = this.state.turned ? '💡' : '-';
 
     return (
-      <div>
+      <div className={styles.house}>
         <button onClick={this.handleSwitch}>SWITCH</button>
         {bulb}, power: {this.props.power}
       </div>
