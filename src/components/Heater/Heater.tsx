@@ -17,7 +17,7 @@ class Light extends React.Component<Props, State> {
     super(props);
     console.log('Constructing...');
 
-    // this.handleSwitch = this.handleSwitch.bind(this);
+    this.handleSwitch = this.handleSwitch.bind(this);
   }
 
   componentDidMount() {
@@ -37,15 +37,17 @@ class Light extends React.Component<Props, State> {
   };
 
   handleSwitch() {
-    this.setState({ turned: true });
+    // @task - ako "1-liner menit true/false"
+    this.setState({ turned: !this.state.turned });
   }
 
   render() {
-    console.log('RENDER');
     const bulb = this.state.turned ? '💡' : '-';
 
+    const divStyle = this.state.turned ? styles.lightOn : styles.lightOff;
+
     return (
-      <div className={styles.house}>
+      <div className={divStyle}>
         <button onClick={this.handleSwitch}>SWITCH</button>
         {bulb}, power: {this.props.power}
       </div>

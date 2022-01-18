@@ -71,3 +71,16 @@ React Context
 Redux (?)
 
 ### Reducers
+
+useReducer
+
+## Expectations from your project
+
+Create application using React using features:
+
+- Router - your app should have at least 2 routes (pages), bonus: dynamic route, i.e. using :someId
+- use hooks - useState, useEffect, bonus: useContext, useReducer
+- pass prop(s) to child component
+- update state of parent component from child using any technique
+- dynamic styles based on state/prop of the component, f.e. red/green indicators
+- fetch and display data from external API, f.e. using some mock response, bonus: handling/displaying error, bonus2: add loading indicator/placeholder - f.e loading icon
