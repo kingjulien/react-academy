@@ -1,21 +1,10 @@
+import { useContext } from 'react';
+import { TeamsContext } from '../../store/providers/TeamsProvider';
 import withLoading from '../WithLoadingHOC';
 import { Link } from 'react-router-dom';
 
-interface ITeam {
-  id: string;
-  name: string;
-}
-
-interface IProps {
-  teams: ITeam[];
-}
-
-const TeamsList: React.FC<IProps> = ({ teams }) => {
-  const buttonPlusInput = [];
-  buttonPlusInput.push(<button key="button1" />);
-  buttonPlusInput.push(
-    <input type="text" key="input1" placeholder="my input" />
-  );
+const TeamsList: React.FC = () => {
+  const { teams } = useContext(TeamsContext);
 
   return (
     <dl>
@@ -24,8 +13,6 @@ const TeamsList: React.FC<IProps> = ({ teams }) => {
           <dd>{team.name}</dd>
         </Link>
       ))}
-
-      {buttonPlusInput}
     </dl>
   );
 };
